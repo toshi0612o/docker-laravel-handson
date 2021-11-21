@@ -13,3 +13,11 @@ services:
       - ./backend:/work
       - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
     working_dir: /work
+
+  db2:
+    build: ./infra/mysql
+    volumes:
+      - db-store:/var/lib/mysql
+
+volumes:
+  db-store:
